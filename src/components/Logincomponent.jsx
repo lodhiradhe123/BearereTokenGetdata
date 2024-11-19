@@ -46,7 +46,7 @@ const Logincomponent = () => {
           },
         }
       );
-      setResponseMessage(`Success: ${JSON.stringify(response.data)}`);
+      setResponseMessage(response.data.data);
     } catch (error) {
       const errorMsg =
         error.response?.data?.message ||
@@ -126,14 +126,27 @@ const Logincomponent = () => {
           </button>
         </form>
         {responseMessage && (
-          <div
-            className={`mt-4 p-2 text-sm text-center rounded-md ${
-              responseMessage.startsWith("Success")
-                ? "bg-green-100 text-green-700"
-                : "bg-red-100 text-red-700"
-            }`}
-          >
-            <h1>{responseMessage}</h1>
+          <div>
+            <h1>{responseMessage.username }</h1>
+            <div
+                    key={responseMessage.id}
+                    className="p-4 bg-gray-100 border rounded-md shadow-sm"
+                  >
+                    <p className="text-sm text-gray-800">
+                      <strong>ID:</strong> {responseMessage.id}
+                    </p>
+                    
+                    <p className="text-sm text-gray-800">
+                      <strong>Username:</strong> {responseMessage.username}
+                    </p>
+                    <p className="text-sm text-gray-800">
+                      <strong>Status:</strong>{" "}
+                      {responseMessage.status ? "Active" : "Inactive"}
+                    </p>
+                  
+                   
+                   
+                  </div>
           </div>
         )}
       </div>
