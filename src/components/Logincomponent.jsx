@@ -57,6 +57,7 @@ const Logincomponent = () => {
       setLoading(false);
     }
   };
+  console.log(responseMessage);
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
@@ -125,6 +126,7 @@ const Logincomponent = () => {
             {loading ? "Submitting..." : "Submit"}
           </button>
         </form>
+       
         {responseMessage && (
           <div>
             <h1>{responseMessage.username }</h1>
@@ -141,9 +143,20 @@ const Logincomponent = () => {
                     </p>
                     <p className="text-sm text-gray-800">
                       <strong>Status:</strong>{" "}
-                      {responseMessage.status ? "Active" : "Inactive"}
+                      {responseMessage.status}
                     </p>
-                  
+                    <p className="text-sm text-gray-800">
+                      <strong>Url:</strong>{" "}
+                      {responseMessage.url }
+                    </p>
+                    <p className="text-sm text-gray-800">
+                      <strong>value:</strong>{" "}
+                      {responseMessage.value }
+                    </p>
+                    <p className="text-sm text-gray-800">
+                      <strong> sender_id:</strong>{" "}
+                      {responseMessage. sender_id }
+                    </p>
                    
                    
                   </div>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Addhooks from "./Addhooks";
+import { Link } from "react-router-dom";
 
 const WebhookData = () => {
   const [formData, setFormData] = useState({
@@ -99,6 +100,14 @@ const WebhookData = () => {
             {loading ? "Submitting..." : "Submit"}
           </button>
         </form>
+        <Link to="/Addhooks">
+          <button
+            type="submit"
+            className="w-1/2 mt-6 text-center ml-20  bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition disabled:opacity-50"
+          >
+            AddData
+          </button>
+        </Link>
         {responseMessage && (
           <div
             className={`mt-4 p-2 text-sm text-center rounded-md ${
@@ -146,7 +155,7 @@ const WebhookData = () => {
       </div>
     </div>
   );
-  <Addhooks/>
+  <Addhooks />;
 };
 
 export default WebhookData;
